@@ -1,22 +1,27 @@
-var btn = document.getElementById("btn1");
-btn.addEventListener('click', f );
+var painter1 = document.getElementById("c1").getContext("2d")
+var painter2 = document.getElementById("c2").getContext("2d")
 
-function f (){
-    var a = Number(document.getElementById("i1").value);
-    var b = Number(document.getElementById("i2").value);
-    var c = Number(document.getElementById("i3").value);
+function drawBackround(painter){
+painter.fillStyle = "#000000";
+painter.fillRect(0, 0, 400, 400);// x, y, w, h 
+}
 
-    // var max = a > b ? a : b;
-    // max = max > c ? max : c;
-var max;
-    if (a > b ){
-        max = a; 
-    } else {
-        max = b;
+drawBackround(painter1);
+drawBackround(painter2);
+
+painter1.fillStyle = "#FF0000";
+for(var j = 0; j <13; ++j ){
+
+        for (var i = 0; i<13; ++i){
+    painter1.fillRect(10 + i*30 , 10+j*30 , 20 , 20);
     }
-    if (c > max){
-        max = c;
-    }
+}
 
-    document.getElementById("output").innerHTML = max;
+painter2.fillStyle = "#FFFF00"
+var t = 0;
+while(t<13)
+{
+painter2.fillRect(10+t*30, 10+t*30 , 20, 20);
+++t;
+
 }
